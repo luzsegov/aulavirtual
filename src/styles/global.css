@@ -212,8 +212,8 @@ body {
 }
 
 .copyright-text {
-    width: 100%; /* Obliga al texto a ocupar toda la fila de abajo */
-    margin-top: 30px; /* Espacio respecto a las secciones de arriba */
+    width: 100%; 
+    margin-top: 30px;
     font-size: 0.8rem;
     opacity: 0.7;
     border-top: 1px solid rgba(255, 255, 255, 0.1); /* Una línea muy fina para separar */
