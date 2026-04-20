@@ -14,16 +14,18 @@ function Footer() {
       <div className="footer-section">
         <h3>Redes Sociales</h3>
         <div className="social-icons">
-          <a href="https://www.instagram.com/santaclaraifd">
+          <a href="https://www.instagram.com/santaclaraifd" target="_blank" rel="noopener noreferrer">
             <img src="/ig.png" alt="Instagram" className="social-img" />
           </a>
-          <a href="https://www.facebook.com/santaclaracoroneloviedo/?locale=es_LA">
+          <a href="https://www.facebook.com/santaclaracoroneloviedo/?locale=es_LA" target="_blank" rel="noopener noreferrer">
             <img src="/fb.png" alt="Facebook" className="social-img" />
           </a>
         </div>
       </div>
+      
+      <p className="copyright-text">
+        © Copyright IFD|SANTA CLARA 2026. Todos los Derechos Reservados | Desarrollado por Luz Maria Segovia Cáceres
+      </p>
     </footer>
   )
 }
-
-export default Footer
