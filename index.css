@@ -21,12 +21,6 @@ body {
   padding: 20px 50px;
   background-color: #001f3f;
   align-items: center;
-  position: fixed;  
-    top: 0;            
-    left: 0;
-    width: 100%;      
-    z-index: 1000;     
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
 .header-title {
@@ -58,7 +52,6 @@ body {
   display: flex;
   align-items: center;
   overflow: hidden;
-  margin-top: 80px;
 }
 
 .hero-content {
@@ -209,21 +202,24 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 40px 20px;
+  padding: 40px 20px 40px 20px;
   background-color: #00152b;
   text-align: center;
   font-size: 0.85rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   flex-wrap: wrap;
   gap: 20px;
+  color: white;
 }
+
 .copyright-text {
-    width: 100%; /* Obliga al texto a ocupar toda la fila de abajo */
-    margin-top: 30px; /* Espacio respecto a las secciones de arriba */
+    width: 100%; 
+    margin-top: 50px;
     font-size: 0.8rem;
-    opacity: 0.7;
+    opacity: 0.8;
     border-top: 1px solid rgba(255, 255, 255, 0.1); /* Una línea muy fina para separar */
     padding-top: 20px;
+    color: #ffffff; /* Aseguramos que sea blanco */
 }
 
 .footer h3 {
