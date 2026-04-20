@@ -6,9 +6,7 @@ function Home({ onLogin }) {
   return (
     <div className="app-shell">
       <Header onLogin={onLogin} />
-      <main className="hero"> 
-        <Hero />
-      </main>
+      <Hero />
       <Footer />
     </div>
   )
