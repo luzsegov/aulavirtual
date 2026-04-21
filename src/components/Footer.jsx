@@ -23,7 +23,7 @@ function Footer() {
         </div>
       </div>
       <div class="copyright-text">
-  <span>© Copyright FCYT|UNCA 2026. Todos los Derechos Reservados | </span>
+  <span>© Copyright IFD | SANTA CLARA 2026. Todos los Derechos Reservados | </span>
   
   <div class="developers-section">
     Desarrollado por
