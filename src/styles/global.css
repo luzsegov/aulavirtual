@@ -15,17 +15,16 @@ body {
   min-height: 100vh;
 }
 
+/* --- HEADER --- */
 .header {
   position: fixed; 
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-
   display: flex; 
   justify-content: space-between; 
   align-items: center;
-  
   padding: 20px 50px;
   background-color: #001f3f;
 }
@@ -53,13 +52,32 @@ body {
   transform: translateY(-1px);
 }
 
+/* --- BOTÓN VOLVER (NUEVO) --- */
+.back-btn {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.back-btn:hover {
+  background: white;
+  color: #001f3f;
+}
+
+/* --- HERO --- */
 .hero {
   background-color: #0033a0;
   min-height: 500px;
   display: flex;
   align-items: center;
   overflow: hidden;
-  margin-top: 80px; 
+  margin-top: 80px;
 }
 
 .hero-content {
@@ -198,10 +216,6 @@ body {
   right: 40px;
   width: 140px;
   height: auto;
-  background-color: transparent;
-  border-radius: 0;
-  padding: 0;
-  border: none;
   filter: drop-shadow(0px 5px 15px rgba(0, 0, 0, 0.4));
   z-index: 100;
 }
@@ -211,29 +225,13 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 40px 20px 40px 20px;
+  padding: 40px 20px;
   background-color: #00152b;
   text-align: center;
   font-size: 0.85rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   gap: 20px;
   color: white;
-}
-
-
-.copyright-text {
-    width: 100%; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    flex-basis: 100%; 
-    margin-top: 50px;
-    font-size: 0.8rem;
-    opacity: 0.8;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 20px;
-    color: #ffffff;
 }
 
 .footer h3 {
@@ -265,13 +263,25 @@ body {
   transform: scale(1.1);
 }
 
+/* --- COPYRIGHT Y DESARROLLADORES --- */
+.copyright-text {
+  width: 100%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-basis: 100%;
+  margin-top: 50px;
+  font-size: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  color: #ffffff;
+}
+
 .developers-section {
-    display: inline-flex;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 8px;
-  font-size: 0.9rem;
 }
 
 .tooltip-container {
@@ -288,7 +298,6 @@ body {
   font-weight: bold;
   font-size: 0.8rem;
   transition: all 0.3s ease;
-  font-weight: bold;
 }
 
 .initials-box:hover {
@@ -306,9 +315,9 @@ body {
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%; 
+  bottom: 125%;
   left: 50%;
-  margin-left: -90px; 
+  margin-left: -90px;
   opacity: 0;
   transition: opacity 0.3s;
   box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
@@ -330,4 +339,30 @@ body {
 .tooltip-container:hover .tooltip-text {
   visibility: visible;
   opacity: 1;
+}
+
+/* --- RESPONSIVO PARA MÓVILES (NUEVO) --- */
+@media (max-width: 768px) {
+  .header {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .main-title {
+    font-size: 2.5rem; /* Título más pequeño en móvil */
+  }
+
+  .hero-content {
+    flex-direction: column;
+  }
+
+  .hero-left, .hero-right {
+    display: none; /* Ocultamos imágenes laterales en móviles para ahorrar espacio */
+  }
+
+  .copyright-text {
+    flex-direction: column;
+    text-align: center;
+  }
 }

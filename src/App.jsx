@@ -10,6 +10,7 @@ function App() {
   ) : (
     <Login onBack={() => setPage('home')} />
   )
+  
 }
 
 export default App

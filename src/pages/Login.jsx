@@ -3,9 +3,6 @@ import '../styles/login.css'
 function Login({ onBack }) {
   return (
     <div className="login-page">
-      <button type="button" className="back-button" onClick={onBack}>
-        ← Volver a inicio
-      </button>
       <div className="login-container">
         <div className="login-visual">
           <div className="overlay-gradient" />
