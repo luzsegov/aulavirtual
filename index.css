@@ -16,11 +16,18 @@ body {
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  
   padding: 20px 50px;
   background-color: #001f3f;
-  align-items: center;
 }
 
 .header-title {
@@ -46,12 +53,14 @@ body {
   transform: translateY(-1px);
 }
 
+/* --- HERO AJUSTADO --- */
 .hero {
   background-color: #0033a0;
   min-height: 500px;
   display: flex;
   align-items: center;
   overflow: hidden;
+  margin-top: 80px; /* Añadido para que el header fijo no tape el título */
 }
 
 .hero-content {
@@ -198,6 +207,7 @@ body {
   z-index: 100;
 }
 
+/* --- FOOTER --- */
 .footer {
   display: flex;
   flex-wrap: wrap;
@@ -207,19 +217,24 @@ body {
   text-align: center;
   font-size: 0.85rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  flex-wrap: wrap;
   gap: 20px;
   color: white;
 }
 
+
 .copyright-text {
     width: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    flex-basis: 100%; /* Asegura que ocupe toda la línea de abajo */
     margin-top: 50px;
     font-size: 0.8rem;
     opacity: 0.8;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Una línea muy fina para separar */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 20px;
-    color: #ffffff; /* Aseguramos que sea blanco */
+    color: #ffffff;
 }
 
 .footer h3 {
@@ -249,4 +264,71 @@ body {
 .social-img:hover {
   filter: brightness(1.3);
   transform: scale(1.1);
+}
+
+.developers-section {
+    display: inline-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.initials-box {
+  border: 1px solid #4db8ff;
+  color: #4db8ff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.initials-box:hover {
+  background-color: #4db8ff;
+  color: white;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 180px;
+  background-color: white;
+  color: #007acc;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Aparece arriba de las iniciales */
+  left: 50%;
+  margin-left: -90px; /* Centra el cuadrito */
+  opacity: 0;
+  transition: opacity 0.3s;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+  font-size: 0.75rem;
+  border: 1px solid #ddd;
+}
+
+.tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+}
+
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
 }

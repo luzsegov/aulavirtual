@@ -22,10 +22,23 @@ function Footer() {
           </a>
         </div>
       </div>
-      
-      <p className="copyright-text">
-        © Copyright IFD|SANTA CLARA 2026. Todos los Derechos Reservados | Desarrollado por Luz Maria Segovia Cáceres
-      </p>
+      <div class="copyright-text">
+  <span>© Copyright FCYT|UNCA 2026. Todos los Derechos Reservados | </span>
+  
+  <div class="developers-section">
+    Desarrollado por
+    
+    <div class="tooltip-container">
+      <span class="initials-box">LS</span>
+      <span class="tooltip-text">Luz Maria Segovia Caceres</span>
+    </div>
+
+    <div class="tooltip-container">
+      <span class="initials-box">AV</span>
+      <span class="tooltip-text">Araceli Isabel Vazquez Lopez</span>
+    </div>
+  </div>
+</div>
     </footer>
   )
 }
