@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administrador - IFD Santa Clara</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <header class="top-bar">
+        <div class="top-left-group">
+            <button id="menu-toggle" class="menu-btn">☰</button>
+            <div class="logo-container">
+                <img src="logoifd.png" class="main-logo">
+                <span class="institution-name">INSTITUTO DE FORMACIÓN DOCENTE - SANTA CLARA</span>
+            </div>
+        </div>
+
+        <div class="top-right">
+            <div class="user-profile">
+                <img src="avatar.png" alt="Avatar" class="avatar">
+                <p>Perfil</p>
+            <button class="logout-btn" onclick="cerrarSesion()">
+                <img src="salir.png" alt="Icono Salir" class="logout-icon-img">
+                <span class="logout-text">Salir</span>
+            </button>
+        </div>
+    </div>
+</header>
+
+    <div class="admin-container">
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h3>Gestión Principal</h3>
+                <ul>
+                    <li>Estudiantes <span class="arrow">⌄</span></li>
+                    <li>Docentes y cursos <span class="arrow">⌄</span></li>
+                    <li>Horarios <span class="arrow">⌄</span></li>
+                    <li>Pagos Alumnos <span class="arrow">⌄</span></li>
+                    <li class="link-sub">Crear cuenta</li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h3>Configuración</h3>
+                <ul>
+                    <li>Ajustes del Sistema <span class="arrow">⌄</span></li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="admin-header">
+                <h1>BIENVENIDO AL PANEL DEL ADMINISTRADOR</h1>
+            </header>
+
+<section class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-info">
+                <span class="card-number" id="count-usuarios">0</span>
+                <p>Usuarios Registrados</p>
+            </div>
+            <div class="stat-icon">
+                <img src="usuarios.png" alt="Icono" class="card-img">
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-info">
+                <span class="card-number" id="count-alumnos">0</span>
+                <p>Alumnos Registrados</p>
+            </div>
+            <div class="stat-icon">
+                <img src="alumnos.png" alt="Icono" class="card-img">
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-info">
+                <span class="card-number" id="count-docentes">0</span>
+                <p>Docentes Registrados</p>
+            </div>
+            <div class="stat-icon">
+                <img src="docente.png" alt="Icono" class="card-img">
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-info">
+                <span class="card-number" id="count-matriculas">0</span>
+                <p>Matriculas Registradas</p>
+            </div>
+            <div class="stat-icon">
+                <img src="matricula.png" alt="Icono" class="card-img">
+            </div>
+        </div>
+    </section> </main>
+    </div>
+
+    <script>
+        const datosAdmin = {
+            usuarios: 15,
+            alumnos: 124,
+            docentes: 32,
+            matriculas: 88
+        };
+
+        function cargarContadores() {
+            document.getElementById('count-usuarios').innerText = datosAdmin.usuarios;
+            document.getElementById('count-alumnos').innerText = datosAdmin.alumnos;
+            document.getElementById('count-docentes').innerText = datosAdmin.docentes;
+            document.getElementById('count-matriculas').innerText = datosAdmin.matriculas;
+        }
+
+        window.onload = cargarContadores;
+
+        // Lógica del Menú
+        const menuBtn = document.getElementById('menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('hidden');
+        });
+
+        function cerrarSesion() {
+    
+    window.location.href = "login.html"; 
+}
+    </script>
+</body>
+</html>
