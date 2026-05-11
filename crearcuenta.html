@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - IFD Santa Clara</title>
+    <link rel="stylesheet" href="crearcuenta.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <main class="main-wrapper">
+        <section class="branding-area">
+            <img src="logoifd.png" alt="IFD Santa Clara Logo" class="brand-logo">
+        </section>
+
+        <section class="form-area">
+            <div class="form-container">
+                <h1 class="form-title">CREAR UNA CUENTA</h1>
+                
+                <div class="role-selection">
+                    <button type="button" class="btn-role active" id="sel-estudiante">
+                        <i class="fas fa-user"></i>
+                        <span>Estudiante</span>
+                    </button>
+                    <button type="button" class="btn-role" id="sel-docente">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>Docente</span>
+                    </button>
+                </div>
+
+                <form id="registro-form" class="auth-form">
+    <div class="field-group">
+        <label>Nombre Completo *</label>
+        <div class="field-wrapper">
+            <i class="fas fa-id-card"></i>
+            <input type="text" name="nombre" placeholder="Ingresa tu nombre" required>
+        </div>
+    </div>
+
+    <div class="field-group">
+        <label>Nro. de Cédula *</label>
+        <div class="field-wrapper">
+            <i class="fas fa-address-card"></i>
+            <input type="text" name="cedula" placeholder="Ej: 1.234.567" required>
+        </div>
+    </div>
+
+    <div class="field-group">
+        <label>E-mail *</label>
+        <div class="field-wrapper">
+            <i class="fas fa-envelope"></i>
+            <input type="email" name="email" placeholder="tu@correo.com" required>
+        </div>
+    </div>
+
+    <div class="field-group" id="sec-estudiante">
+        <label>Carrera *</label>
+        <div class="field-wrapper">
+            <i class="fas fa-graduation-cap"></i>
+            <input type="text" id="input-carrera" placeholder="Carrera que cursas">
+        </div>
+    </div>
+
+    <div class="field-group hidden" id="sec-docente">
+        <label>Materias*</label>
+        <div class="field-wrapper-materias">
+            <div id="lista-materias" class="checkbox-grid">
+                </div>
+        </div>
+    </div>
+
+    <div class="field-group">
+        <label>Contraseña *</label>
+        <div class="field-wrapper">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="pass-field" placeholder="**********" required>
+            <i class="fas fa-eye-slash toggle-eye" id="toggle-pass"></i>
+        </div>
+    </div>
+
+    <button type="submit" class="btn-submit" id="submit-text">Crear cuenta</button>
+</form>
+            </div>
+        </section>
+    </main>
+    <script src="crearcuenta.js"></script>
+</body>
+</html>

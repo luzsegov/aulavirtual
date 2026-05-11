@@ -316,3 +316,14 @@ background: none;
 .stat-card {
     border-left: 6px solid #001f3f; 
 }
+
+.link-sub {
+    cursor: pointer;
+    padding: 10px;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.link-sub:hover {
+    color: #007bff; /* Cambia al color azul que usas en el resto del sistema */
+}

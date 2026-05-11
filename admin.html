@@ -38,7 +38,9 @@
                     <li>Docentes y cursos <span class="arrow">⌄</span></li>
                     <li>Horarios <span class="arrow">⌄</span></li>
                     <li>Pagos Alumnos <span class="arrow">⌄</span></li>
-                    <li class="link-sub">Crear cuenta</li>
+                    <li class="link-sub">
+    <a href="crearcuenta.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">Crear cuenta</a>
+</li>
                 </ul>
             </div>
             <div class="sidebar-section">
@@ -97,35 +99,6 @@
     </section> </main>
     </div>
 
-    <script>
-        const datosAdmin = {
-            usuarios: 15,
-            alumnos: 124,
-            docentes: 32,
-            matriculas: 88
-        };
-
-        function cargarContadores() {
-            document.getElementById('count-usuarios').innerText = datosAdmin.usuarios;
-            document.getElementById('count-alumnos').innerText = datosAdmin.alumnos;
-            document.getElementById('count-docentes').innerText = datosAdmin.docentes;
-            document.getElementById('count-matriculas').innerText = datosAdmin.matriculas;
-        }
-
-        window.onload = cargarContadores;
-
-        // Lógica del Menú
-        const menuBtn = document.getElementById('menu-toggle');
-        const sidebar = document.querySelector('.sidebar');
-
-        menuBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('hidden');
-        });
-
-        function cerrarSesion() {
-    
-    window.location.href = "login.html"; 
-}
-    </script>
+<script src="admin.js"></script> [cite: 13]
 </body>
 </html>
