@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil Docente - IFD Santa Clara</title>
+    <link rel="stylesheet" href="perfild.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-left">
+            <img src="logoifd.png" alt="Logo IFD" class="nav-logo">
+            <span class="nav-title">IFD - SANTA CLARA</span>
+        </div>
+        
+        <nav class="nav-center">
+            <a href="docente.html" class="nav-link"><i class="fas fa-home"></i> Inicio</a>
+            
+            <div class="dropdown-academia">
+                <button class="nav-link btn-drop-academia" id="btn-academia">
+                    <i class="fas fa-graduation-cap"></i> Academia <i class="fas fa-chevron-down icon-flecha"></i>
+                </button>
+                <div class="dropdown-content-academia" id="menu-academia">
+                    <a href="calificaciones.html"><i class="fas fa-star"></i> Carga de Calificaciones</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="nav-right">
+            <div class="user-profile">
+                <img src="avatar.png" alt="Avatar" class="nav-avatar" id="avatar-btn">
+                <div class="dropdown-menu" id="profile-dropdown">
+                    <a href="perfild.html"><i class="fas fa-user-cog"></i> Mi Perfil</a>
+                    <a href="login.html"><i class="fas fa-sign-out-alt"></i> Salir</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="contenedor-centro-perfil">
+            <section class="tarjeta-perfil">
+                
+                <div class="perfil-encabezado">
+                    <div class="avatar-zona" title="Haga clic para cambiar su foto de perfil">
+                        <img src="avatar.png" alt="Foto Perfil Docente" id="perfil-foto-vista">
+                        <div class="overlay-avatar">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                    </div>
+                    <input type="file" id="input-archivo-foto" accept="image/*" class="hidden">
+                    
+                    <h2 id="txt-nombre-docente">Cargando Nombre...</h2>
+                    <span class="badge-rol">Docente Institucional</span>
+                </div>
+
+                <form id="form-perfil-docente" class="form-perfil-vertical">
+                    
+                    <div class="subtitulo-seccion"><i class="fas fa-university"></i> Dato Personal </div>
+                    
+                    <div class="grid-inputs">
+                        <div class="filter-group">
+                            <label>Número de Cédula</label>
+                            <input type="text" id="info-cedula" readonly class="input-readonly">
+                        </div>
+                    </div>
+
+                    <div class="subtitulo-seccion"><i class="fas fa-address-book"></i> Datos de Contacto</div>
+                    
+                    <div class="filter-group">
+                        <label for="input-correo">Correo Electrónico</label>
+                        <input type="email" id="input-correo" required placeholder="ejemplo@gmail.com">
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="input-telefono">Número de Teléfono / Celular</label>
+                        <input type="text" id="input-telefono" required placeholder="098x xxx xxx">
+                    </div>
+
+                    <div class="subtitulo-seccion"><i class="fas fa-lock"></i> Seguridad de la Cuenta</div>
+                    
+                    <div class="filter-group">
+                        <label for="input-password-actual">Contraseña Actual (Para confirmar cambios)</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="input-password-actual" required placeholder="••••••••">
+                            <i class="fas fa-eye toggle-password" data-target="input-password-actual"></i>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="input-password-nueva">Nueva Contraseña (Opcional)</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="input-password-nueva" placeholder="Dejar en blanco si no deseas cambiarla">
+                            <i class="fas fa-eye toggle-password" data-target="input-password-nueva"></i>
+                        </div>
+                    </div>
+
+                    <div id="msg-estado-perfil" class="mensaje-alerta hidden"></div>
+
+                    <div class="perfil-actions">
+                        <button type="submit" class="btn-guardar-perfil">
+                            <i class="fas fa-check-circle"></i> Guardar Cambios
+                        </button>
+                    </div>
+                </form>
+
+            </section>
+        </div>
+    </main>
+
+    <script src="perfild.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Alumno - IFD Santa Clara</title>
+    <link rel="stylesheet" href="alumno.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-left">
+            <img src="logoifd.png" alt="Logo IFD" class="nav-logo">
+            <span class="nav-title">IFD - SANTA CLARA</span>
+        </div>
+        <div class="nav-right">
+            <div class="icon-notification">
+                <img src="campana.png" alt="Notificaciones" class="nav-icon">
+                <span class="badge"></span>
+            </div>
+            <div class="user-profile">
+                <img src="avatar.png" alt="Avatar" class="nav-avatar" id="avatar-btn">
+                <div class="dropdown-menu" id="profile-dropdown">
+                    <a href="perfila.html"><i class="fas fa-user-graduate"></i> Mi Perfil</a>
+                    <a href="login.html"><i class="fas fa-sign-out-alt"></i> Salir</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="contenedor-centro-bienvenida">
+    <section class="tarjeta-bienvenida">
+        <h1 class="page-title-alumno">Mis cursos</h1>
+        <h2 class="welcome-text-alumno">¡Hola, <span id="nombre-alumno">...</span>! 👋</h2>
+        <p class="carrera-container-alumno">
+            Carrera: <span id="carrera-click" class="clickable-carrera">Seleccionar Carrera</span>
+        </p>
+        <h3 class="section-subtitle-alumno">Vista general de curso</h3>
+    </section>
+</div>
+        <div id="sin-materias" class="no-courses-box hidden">
+            <i class="fas fa-folder-open no-courses-icon"></i>
+            <p>No tienes cursos activos en este momento.</p>
+            <p class="instruction">Haz clic en tu carrera de arriba para matricularte en las materias correspondientes.</p>
+        </div>
+
+        <section class="courses-grid" id="tarjetas-container">
+            </section>
+
+        <section id="oferta-materias" class="oferta-box hidden">
+            <div class="oferta-header">
+                <h3>Materias Disponibles - Primer Semestre</h3>
+                <button id="cerrar-oferta" class="btn-close">&times;</button>
+            </div>
+            <div id="lista-disponibles" class="oferta-lista">
+                </div>
+        </section>
+    </main>
+
+    <div id="modal-clave" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Matriculación de Alumno</h3>
+            <p>Ingresa la clave de acceso para: <br><strong id="materia-titulo"></strong></p>
+            <div class="modal-input-group">
+                <i class="fas fa-key"></i>
+                <input type="password" id="input-clave" placeholder="Contraseña de la materia">
+            </div>
+            <div class="modal-actions">
+                <button id="btn-cancelar" class="btn-secondary">Cancelar</button>
+                <button id="btn-matricular" class="btn-primary">Matricularse</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="alumno.js"></script>
+</body>
+</html>

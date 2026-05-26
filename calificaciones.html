@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actas de Calificaciones - IFD Santa Clara</title>
+    <link class="css-link" rel="stylesheet" href="calificaciones.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-left">
+            <img src="logoifd.png" alt="Logo IFD" class="nav-logo">
+            <span class="nav-title">IFD - SANTA CLARA</span>
+        </div>
+        
+        <nav class="nav-center">
+            <a href="docente.html" class="nav-link"><i class="fas fa-home"></i> Inicio</a>
+            
+            <div class="dropdown-academia">
+                <button class="nav-link btn-drop-academia" id="btn-academia">
+                    <i class="fas fa-graduation-cap"></i> Academia <i class="fas fa-chevron-down icon-flecha"></i>
+                </button>
+                <div class="dropdown-content-academia" id="menu-academia">
+                    <a href="calificaciones.html"><i class="fas fa-star"></i> Carga de Calificaciones</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="nav-right">
+            <div class="user-profile">
+                <img src="avatar.png" alt="Avatar" class="nav-avatar" id="avatar-btn">
+                <div class="dropdown-menu" id="profile-dropdown">
+                    <a href="#"><i class="fas fa-user-cog"></i> Mi Perfil</a>
+                    <a href="login.html"><i class="fas fa-sign-out-alt"></i> Salir</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+
+        <div class="contenedor-centro-filtros">
+            <section class="tarjeta-filtros-centrada">
+                <h2 class="section-title-filtros">Selecciona los Datos Académicos</h2>
+                
+                <form id="form-buscar-cursos" class="form-filtros-vertical">
+                    
+                    <div class="filter-group">
+                        <label for="select-carrera">Carrera / Profesorado</label>
+                        <select id="select-carrera" required>
+                            <option value="">-- Seleccione la Carrera --</option>
+                            </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="select-curso-anio"> Año Académico </label>
+                        <select id="select-curso-anio" required disabled>
+                            <option value="">-- Seleccione un Año academico --</option>
+                            </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="select-materia">Materia Asignada</label>
+                        <select id="select-materia" required disabled>
+                            <option value="">-- Seleccione la Materia --</option>
+                            </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="select-periodo">Periodo Lectivo</label>
+                        <select id="select-periodo" required>
+                            <option value="2026">2026</option>
+                            <option value="2025">2025</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-buscar-filtros" id="btn-buscar" disabled>
+                        <i class="fas fa-search"></i> Buscar
+                    </button>
+                </form>
+            </section>
+        </div>
+
+        <section id="seccion-tabla-cursos" class="tarjeta-tabla-resultados hidden">
+            <h3 class="subtitulo-tabla">Cursos Asignados</h3>
+            <div class="table-responsive">
+                <table class="tabla-utcd-basica">
+                    <thead>
+                        <tr>
+                            <th>Acción</th>
+                            <th>Sede</th>
+                            <th>Curso / Sección</th>
+                            <th>Cant. Alumnos</th>
+                            <th>Turno</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-cursos-body">
+                        </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="seccion-planilla-notas" class="tarjeta-planilla-carga hidden">
+            <div class="banner-encabezado-curso">
+                <h2 id="txt-nombre-curso-activo">Cargar Notas de la Materia: </h2>
+            </div>
+            
+            <div class="alerta-importante">
+                <i class="fas fa-info-circle"></i> <strong>IMPORTANTE:</strong> Si el alumno no posee comprobante de pago verificado por administración, figurará bloqueado o como Ausente en la planilla oficial.
+            </div>
+
+            <div class="sub-filtros-planilla">
+                <div class="campo-filtro" style="grid-column: span 2;">
+                    <label for="select-tipo-examen">Tipo Examen a Calificar</label>
+                    <select id="select-tipo-examen" required>
+                        <option value="EXAMEN PARCIAL">EXAMEN PARCIAL</option>
+                        <option value="EXAMEN FINAL">EXAMEN FINAL</option>
+                        <option value="TRABAJO DE INVESTIGACION">TRABAJO DE INVESTIGACION</option>
+                    </select>
+                </div>
+            </div>
+
+            <form id="form-guardar-acta">
+                <div class="table-responsive">
+                    <table class="tabla-planilla-alumnos">
+                        <thead>
+                            <tr>
+                                <th>Ítem</th>
+                                <th>Nro. Cédula</th>
+                                <th>Alumno</th>
+                                <th>Puntaje Obtenido</th>
+                                <th>Puntaje Total</th>
+                                <th>Asistencia</th>
+                                <th>Calificación</th>
+                                <th>Num. Factura</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-alumnos-notas-body">
+                            </tbody>
+                    </table>
+                </div>
+
+                <div class="planilla-botones-footer">
+                    <button type="submit" class="btn-footer-utcd btn-guardar">
+                        <i class="fas fa-save"></i> Guardar
+                    </button>
+                    <button type="button" onclick="prepararYDescargarPDF()" class="btn-footer-utcd btn-imprimir">
+                        <i class="fas fa-file-pdf"></i> Imprimir / Descargar PDF
+                    </button>
+                </div>
+            </form>
+        </section>
+
+    </main>
+
+    <script src="calificaciones.js"></script>
+</body>
+</html>

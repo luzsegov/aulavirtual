@@ -1,0 +1,420 @@
+:root {
+    --bg-dark-ifd: #001f54;
+    --accent-blue-ifd: #29b6f6;
+    --white: #ffffff;
+    --text-dark: #111111; /* Texto negro nítido */
+    --text-muted: #555555;
+    --light-gray: #f4f6f9;
+    --color-visible: #2e7d32;
+    --color-oculto: #c62828;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 20%, var(--bg-dark-ifd) 55%, var(--bg-dark-ifd) 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.navbar {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky; top: 0; z-index: 100;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-title { 
+    font-weight: 800; 
+    color: var(--bg-dark-ifd);
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.nav-logo { 
+    height: 45px; 
+    display: block;
+}
+
+.nav-center { display: flex; align-items: center; gap: 20px; }
+.nav-link {
+    background: none; border: none; color: var(--bg-dark-ifd);
+    font-size: 0.95rem; font-weight: 700; text-decoration: none;
+    cursor: pointer; display: flex; align-items: center; gap: 6px;
+    padding: 8px 12px; border-radius: 4px; transition: background 0.2s;
+}
+.nav-link:hover { background: rgba(0, 31, 84, 0.08); }
+.nav-avatar { height: 40px; width: 40px; border-radius: 50%; 
+    border: 2px solid var(--accent-blue-ifd); cursor: pointer; 
+}
+
+/* Dropdown */
+.dropdown-menu {
+    position: absolute; right: 40px; top: 60px; background: white;
+    border-radius: 6px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    display: none; flex-direction: column; width: 160px; overflow: hidden;
+}
+.dropdown-menu.show { display: flex; }
+.dropdown-menu a { padding: 12px 15px; text-decoration: none; color: var(--text-dark); font-size: 0.9rem; }
+.dropdown-menu a:hover { background: var(--light-gray); }
+
+/* Contenedor Principal */
+.main-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Encabezado en Vidrio Translúcido */
+.contenedor-centro-docente {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 35px;
+    width: 100%;
+}
+.tarjeta-docente-header {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    max-width: 650px;
+}
+.page-title { color: var(--text-dark); font-size: 2rem; font-weight: 800; }
+.welcome-text { color: var(--text-dark); font-size: 1.5rem; margin: 5px 0 10px 0; }
+.materia-actual { color: var(--text-muted); font-size: 1rem; margin-bottom: 20px; }
+
+.section-subtitle { color: white; font-size: 1.3rem; margin-bottom: 15px; font-weight: 600; }
+
+/* Grid de Tareas Creadas */
+.grid-tareas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 20px;
+}
+
+/* Tarjeta de Tarea Individual */
+.tarjeta-tarea {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-top: 5px solid var(--bg-dark-ifd);
+}
+.tarea-header-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+.tarea-header-card h4 { color: var(--text-dark); font-size: 1.1rem; font-weight: 700; flex: 1; padding-right: 10px; }
+
+/* Botón interactivo de Ojito Visibilidad */
+.btn-visibilidad-toggle {
+    background: none; border: none; font-size: 1.2rem; cursor: pointer; padding: 2px;
+}
+.btn-visibilidad-toggle.visible { color: var(--color-visible); }
+.btn-visibilidad-toggle.oculto { color: var(--color-oculto); }
+
+.tarea-tiempos { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px; }
+.tarea-tiempos i { margin-right: 4px; }
+
+/* Contenedores de Estados Solicitados (Entregas y Calificaciones) */
+.tarea-estados-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.estado-box {
+    flex: 1;
+    background: var(--light-gray);
+    padding: 8px 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-dark);
+}
+.estado-box span { display: block; font-size: 1.1rem; font-weight: 700; color: var(--bg-dark-ifd); }
+
+.formatos-badge-lista { font-size: 0.75rem; color: #666; margin-bottom: 15px; }
+
+/* Botoneras */
+.btn-primario-docente {
+    background: #0288d1; color: white; border: none; padding: 10px 20px;
+    border-radius: 7px; font-weight: bold; cursor: pointer; font-size: 0.95rem;
+}
+.btn-primario-docente:hover { background: var(--bg-dark-ifd); }
+
+.btn-secundario { background: #e0e0e0; color: var(--text-dark); border: none; padding: 10px 20px; border-radius: 7px; cursor: pointer; font-weight: 600; }
+
+/* Modales */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); display: flex; justify-content: center; align-items: center; z-index: 1000; }
+.modal-content-tarea { background: white; padding: 25px; border-radius: 14px; width: 90%; max-width: 550px; color: var(--text-dark); }
+.modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 12px; margin-bottom: 15px; }
+.btn-close { background: none; border: none; font-size: 1.8rem; cursor: pointer; color: #999; }
+
+.form-tarea { display: flex; flex-direction: column; gap: 15px; }
+.form-group { display: flex; flex-direction: column; gap: 5px; }
+.form-row { display: flex; gap: 15px; }
+.form-group label { font-size: 0.9rem; font-weight: 600; color: var(--text-dark); }
+.form-group input, .form-group textarea, .form-group select { padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; outline: none; }
+.form-group input:focus, .form-group textarea:focus { border-color: #0288d1; }
+
+.formatos-checkbox-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; margin-top: 5px; }
+.cb-label { font-size: 0.85rem; font-weight: 400 !important; cursor: pointer; display: flex; align-items: center; gap: 5px; }
+
+.modal-actions-docente { display: flex; justify-content: flex-end; gap: 10px; border-top: 1px solid #eee; padding-top: 15px; margin-top: 10px; }
+
+.hidden { display: none !important; }
+
+/* Responsive Móvil */
+@media (max-width: 600px) {
+    .navbar { padding: 10px 20px; }
+    .form-row { flex-direction: column; gap: 15px; }
+    .tarjeta-docente-header { padding: 20px; }
+    .grid-tareas { grid-template-columns: 1fr; }
+    .modal-content-tarea { padding: 20px 15px; }
+}
+
+/* Contenedor principal para centrar y estructurar la lista */
+.contenedor-lista-tareas {
+    max-width: 750px; /* Almejado exactamente con el ancho de tu tarjeta de arriba */
+    margin: 30px auto; /* Centra el bloque horizontalmente en la pantalla */
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.85); /* Fondo estilo vidrio translúcido */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Corrección del Título: Ahora en NEGRO, centrado y elegante */
+.section-subtitle { 
+    color: var(--text-dark) !important; /* Fuerza el uso de tu color negro (#111111) */
+    font-size: 1.4rem; 
+    font-weight: 800;
+    text-align: center; /* Lo centramos para que combine con "Gestión de Clases" */
+    margin-bottom: 20px; 
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.08); /* Una sutil línea divisoria inferior */
+}
+
+/* Ajuste del Grid interno para que se adapte al contenedor */
+.grid-tareas {
+    display: flex;
+    flex-direction: column; /* Organiza las tareas una debajo de otra como una lista limpia */
+    gap: 15px;
+    width: 100%;
+}
+
+/* Tarjeta individual de cada tarea (por si acaso) */
+.tarjeta-tarea {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border-left: 5px solid var(--bg-dark-ifd); /* Detalle azul institucional a la izquierda */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ===================================================================
+   CONFIGURACIÓN EXCLUSIVA PARA DESCARGA EN PDF E IMPRESIÓN 
+   =================================================================== */
+@media print {
+    /* 1. Limpiamos la pantalla: Ocultamos lo que no debe ir en el documento oficial */
+    .navbar, 
+    .tarjeta-filtro-principal, 
+    .tarjeta-tabla-resultados, 
+    .sub-filtros-planilla, 
+    .alerta-importante, 
+    .planilla-botones-footer,
+    th:first-child, td:first-child { /* Oculta la columna "Ítem" si quieres ahorrar espacio */
+        display: none !important;
+    }
+
+    /* 2. Forzamos que el fondo sea blanco y las letras 100% negras para el PDF */
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-family: Arial, sans-serif;
+        font-size: 11pt;
+        padding: 0;
+        margin: 0;
+    }
+
+    .tarjeta-planilla-carga {
+        background: #ffffff !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+
+    /* 3. Diseño del Encabezado del Acta en el PDF */
+    .banner-encabezado-curso {
+        background: transparent !important;
+        color: #000000 !important;
+        text-align: center;
+        margin-bottom: 25px;
+        border-bottom: 3px double #000000;
+        padding-bottom: 10px;
+    }
+
+    .banner-encabezado-curso h2 {
+        font-size: 16pt;
+        margin: 0;
+        text-transform: uppercase;
+    }
+
+    /* Añadimos un título institucional invisible en la web pero visible en el PDF */
+    .banner-encabezado-curso::before {
+        content: "INSTITUTO DE FORMACIÓN DOCENTE SANTA CLARA\nACTA OFICIAL DE CALIFICACIONES\n\n";
+        white-space: pre;
+        font-weight: bold;
+        font-size: 14pt;
+    }
+
+    /* 4. Estilo de la Tabla de Alumnos en el PDF (Filas nítidas y bordes negros) */
+    .tabla-planilla-alumnos {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        margin-top: 10px;
+    }
+
+    .tabla-planilla-alumnos th {
+        background: #e2e8f0 !important; /* Gris claro para los títulos en vez de azul oscuro */
+        color: #000000 !important;
+        font-weight: bold;
+        border: 1px solid #000000 !important;
+        font-size: 10pt;
+    }
+
+    .tabla-planilla-alumnos td {
+        border: 1px solid #000000 !important; /* Bordes negros finos */
+        padding: 8px !important;
+        font-size: 10pt;
+        background: transparent !important;
+        color: #000000 !important;
+    }
+
+    .input-puntaje {
+        border: none !important;
+        background: transparent !important;
+        color: #000000 !important;
+        font-weight: bold;
+        font-size: 11pt;
+        box-shadow: none !important;
+        text-align: center;
+    }
+
+    .cell-disabled {
+        color: #000000 !important;
+        background: transparent !important;
+    }
+
+    /* Ajuste de página para evitar que se corten filas a la mitad */
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+}
+ /* Estilos para el Menú Central */
+.nav-center {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-link {
+    background: none;
+    border: none;
+    color: var(--bg-dark-ifd);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.nav-link:hover {
+    background: rgba(0, 31, 84, 0.08);
+}
+
+/* Contenedor del Dropdown Academia */
+.dropdown-academia {
+    position: relative;
+    display: inline-block;
+}
+
+.icon-flecha {
+    font-size: 0.75rem;
+    transition: transform 0.2s;
+}
+
+/* Caja de contenido oculto (El submenú) */
+.dropdown-content-academia {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    min-width: 220px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    padding: 6px 0;
+    z-index: 1000;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Enlaces internos del menú Academia (Letras negras legibles) */
+.dropdown-content-academia a {
+    color: #111111 !important; /* Negro nítido */
+    padding: 10px 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.dropdown-content-academia a:hover {
+    background-color: #f1f5f9;
+    color: var(--utcd-light-blue) !important;
+}
+
+/* Clase auxiliar para mostrar el menú con JS */
+.show-menu {
+    display: block !important;
+}

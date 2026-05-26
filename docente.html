@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Docente - IFD Santa Clara</title>
+    <link rel="stylesheet" href="docente.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+    <div class="nav-left">
+        <img src="logoifd.png" alt="Logo IFD" class="nav-logo">
+        <span class="nav-title">IFD - SANTA CLARA</span>
+    </div>
+    
+    <nav class="nav-center">
+        <a href="docente.html" class="nav-link"><i class="fas fa-home"></i> Inicio</a>
+        
+        <div class="dropdown-academia">
+            <button class="nav-link btn-drop-academia" id="btn-academia">
+                <i class="fas fa-graduation-cap"></i> Academia <i class="fas fa-chevron-down icon-flecha"></i>
+            </button>
+            <div class="dropdown-content-academia" id="menu-academia">
+                <a href="calificaciones.html"><i class="fas fa-star"></i> Carga de Calificaciones</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="nav-right">
+        <div class="user-profile">
+            <img src="avatar.png" alt="Avatar" class="nav-avatar" id="avatar-btn">
+            <div class="dropdown-menu" id="profile-dropdown">
+                <a href="perfild.html"><i class="fas fa-user-cog"></i> Mi Perfil</a>
+                <a href="login.html"><i class="fas fa-sign-out-alt"></i> Salir</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <main class="main-container">
+        
+       <div class="contenedor-centro-docente">
+    <section class="tarjeta-docente-header">
+        <h1 class="page-title">Gestión de Clases</h1>
+        <h2 class="welcome-text">¡Bienvenido, Profesor/a! 👋</h2>
+        <p class="materia-actual">Materia: <strong id="nombre-materia-docente">Cargando...</strong></p>
+        <button id="btn-nueva-tarea" class="btn-primario-docente"><i class="fas fa-plus-circle"></i> Crear Nueva Tarea</button>
+    </section>
+</div>
+
+        <div class="contenedor-lista-tareas">
+    
+    <h3 class="section-subtitle">Tareas e Instrumentos de Evaluación</h3>
+    
+    <div id="lista-tareas-docente" class="grid-tareas">
+        </div>
+    
+</div>
+        <div id="lista-tareas-docente" class="grid-tareas">
+            </div>
+
+        <div id="modal-tarea" class="modal-overlay hidden">
+            <div class="modal-content-tarea">
+                <div class="modal-header">
+                    <h3 id="modal-titulo-accion">Configurar Nueva Tarea</h3>
+                    <button id="btn-cerrar-modal" class="btn-close">&times;</button>
+                </div>
+                
+                <form id="form-tarea" class="form-tarea">
+                    <div class="form-group">
+                        <label for="tarea-titulo">Título de la Tarea / Trabajo</label>
+                        <input type="text" id="tarea-titulo" required placeholder="Ej: Trabajo Práctico sobre Socialización">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tarea-desc">Indicaciones / Consigna de Trabajo</label>
+                        <textarea id="tarea-desc" rows="3" placeholder="Escriba las pautas detalladas para los alumnos..."></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tarea-fecha"><i class="fas fa-calendar-alt"></i> Fecha Límite</label>
+                            <input type="date" id="tarea-fecha" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tarea-hora"><i class="fas fa-clock"></i> Hora Límite</label>
+                            <input type="time" id="tarea-hora" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Formatos de Entrega Permitidos</label>
+                        <div class="formatos-checkbox-grid">
+                            <label class="cb-label"><input type="checkbox" value="PDF" checked> PDF (.pdf)</label>
+                            <label class="cb-label"><input type="checkbox" value="DOCX" checked> Word (.docx)</label>
+                            <label class="cb-label"><input type="checkbox" value="EXCEL"> Excel (.xlsx)</label>
+                            <label class="cb-label"><input type="checkbox" value="PPT"> PowerPoint (.pptx)</label>
+                            <label class="cb-label"><input type="checkbox" value="IMG"> Imágenes (PNG, JPG)</label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tarea-visibilidad">Estado de Visibilidad al Alumno</label>
+                            <select id="tarea-visibilidad">
+                                <option value="oculto">Oculto (Borrador para activar en clase)</option>
+                                <option value="visible">Visible de inmediato</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="modal-actions-docente">
+                        <button type="button" id="btn-cancelar-tarea" class="btn-secundario">Cancelar</button>
+                        <button type="submit" class="btn-primario-docente">Guardar y Programar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="docente.js"></script>
+</body>
+</html>

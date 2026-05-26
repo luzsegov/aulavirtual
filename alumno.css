@@ -1,0 +1,162 @@
+:root {
+    --bg-dark-ifd: #001f54;
+    --accent-blue-ifd: #29b6f6;
+    --white: #ffffff;
+    --text-dark: #111111; /* Negro puro/intenso para el texto */
+    --text-muted: #444444;
+    --light-gray: #f4f6f9;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 20%, var(--bg-dark-ifd) 55%, var(--bg-dark-ifd) 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.main-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* ==========================================
+   NUEVO: CONTENEDOR Y TARJETA CENTRAL EN NEGRO
+   ========================================== */
+.contenedor-centro-bienvenida {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 35px;
+    width: 100%;
+}
+
+.tarjeta-bienvenida {
+    background: rgba(255, 255, 255, 0.75); /* Fondo blanco cristalino transparente */
+    backdrop-filter: blur(12px); /* Efecto esmerilado de vidrio */
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 35px 50px;
+    border-radius: 16px;
+    text-align: center; /* Centra los títulos por dentro */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    max-width: 650px; /* Tamaño ideal de la tarjeta en el centro */
+}
+
+/* Letras Negras de la Tarjeta */
+.page-title-alumno { 
+    color: var(--text-dark); 
+    font-size: 2.4rem; 
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.welcome-text-alumno { 
+    color: var(--text-dark); 
+    font-size: 1.8rem; 
+    font-weight: 600; 
+    margin-bottom: 12px; 
+}
+
+.carrera-container-alumno { 
+    color: var(--text-dark); 
+    font-size: 1.05rem;
+    margin-bottom: 15px; 
+}
+
+.section-subtitle-alumno { 
+    color: #222222; 
+    font-size: 1.2rem;
+    font-weight: 500; 
+    margin-top: 10px;
+}
+
+/* Enlace carrera azul para resaltar */
+.clickable-carrera { 
+    color: #0288d1; 
+    font-weight: bold; 
+    text-decoration: underline; 
+    cursor: pointer; 
+}
+.clickable-carrera:hover { 
+    color: var(--bg-dark-ifd); 
+}
+
+/* ==========================================
+   RESTO DE COMPONENTES DEL CAMPUS
+   ========================================== */
+
+/* Navbar */
+.navbar {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky; top: 0; z-index: 100;
+}
+.nav-left { display: flex; align-items: center; gap: 15px; }
+.nav-logo { height: 45px; }
+.nav-title { font-weight: 800; color: var(--bg-dark-ifd); }
+.nav-right { display: flex; align-items: center; gap: 25px; }
+.nav-icon { height: 24px; cursor: pointer; }
+.nav-avatar { height: 40px; width: 40px; border-radius: 50%; border: 2px solid var(--accent-blue-ifd); cursor: pointer; }
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute; right: 40px; top: 60px; background: white;
+    border-radius: 6px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    display: none; flex-direction: column; width: 160px; overflow: hidden;
+}
+.dropdown-menu.show { display: flex; }
+.dropdown-menu a { padding: 12px 15px; text-decoration: none; color: var(--text-dark); font-size: 0.9rem; }
+.dropdown-menu a:hover { background: var(--light-gray); }
+
+/* Caja vacía "Sin materias" */
+.no-courses-box {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 12px; padding: 40px; text-align: center; color: var(--white);
+    margin-top: 20px;
+}
+.no-courses-icon { font-size: 3rem; color: var(--accent-blue-ifd); margin-bottom: 15px; }
+.no-courses-box .instruction { font-size: 0.85rem; color: #b0bec5; margin-top: 10px; }
+
+/* Grid Tarjetas Cursos */
+.courses-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; margin-top: 20px; }
+.course-card { background: var(--white); border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column; }
+.card-banner { height: 140px; background: linear-gradient(45deg, #001a4d, #1a3a70); position: relative; }
+.card-banner::before { content: ''; position: absolute; width: 100%; height: 100%; opacity: 0.15; background-image: linear-gradient(45deg, #fff 25%, transparent 25%), linear-gradient(-45deg, #fff 25%, transparent 25%); background-size: 20px 20px; }
+.card-content { padding: 20px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+.course-name { color: #0288d1; font-size: 0.95rem; font-weight: 600; text-decoration: none; }
+.course-category { font-size: 0.85rem; color: #333; margin-top: 5px; margin-bottom: 15px; }
+.card-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--light-gray); padding-top: 15px; font-size: 0.85rem; color: var(--text-muted); }
+.btn-options { background: none; border: none; color: var(--text-muted); cursor: pointer; }
+
+/* Oferta Académica (Desplegable Inferior) */
+.oferta-box { background: var(--white); border-radius: 12px; padding: 25px; margin-top: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); color: #333; }
+.oferta-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; padding-bottom: 15px; margin-bottom: 20px; }
+.btn-close { background: none; border: none; font-size: 2rem; cursor: pointer; color: var(--text-muted); }
+.oferta-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #f0f0f0; }
+.oferta-info h4 { color: var(--bg-dark-ifd); }
+.oferta-info p { color: var(--text-muted); font-size: 0.85rem; }
+
+/* Modales y Botones */
+.btn-primary, .btn-matricular { background: var(--accent-blue-ifd); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+.btn-primary:hover, .btn-matricular:hover { background: #0288d1; }
+.btn-secondary { background: #e0e0e0; color: #333; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; }
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); display: flex; justify-content: center; align-items: center; z-index: 1000; }
+.modal-content { background: white; padding: 30px; border-radius: 12px; width: 90%; max-width: 400px; color: #333; }
+.modal-input-group { display: flex; align-items: center; border: 1px solid #ccc; padding: 10px; border-radius: 6px; margin: 20px 0; }
+.modal-input-group input { border: none; outline: none; width: 100%; margin-left: 10px; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 10px; }
+
+.hidden { display: none !important; }
